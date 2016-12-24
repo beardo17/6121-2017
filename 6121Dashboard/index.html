@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>6121 Dashboard</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <div class='col-9' id='header'>
+            <h1>TEAM 6121</h1>
+        </div>
+        
+        <div class='col-3' id='robot-state'>
+            <h1>Teleop</h1>
+        </div>
+        
+        <div class='col-6'>
+            <div id='primary-cam'>
+                <img id='front' src="images/placeholder-image.png"/>
+            </div>
+            <div id='secondary-cam' onclick="switchCam()">
+                <img id='rear' src="images/placeholder-image2.png"/>
+            </div>
+        </div>
+        
+        <div class='col-3'>
+            <div id='robot-img'>
+                <img src="images/placeholder-image.png"/>
+            </div>
+            <div id='logger'>
+                <p id='logTxt'>This area shows outputs by the robot. Reads the log file for an on the dashboard board view for quick dedugging</p>
+            </div>
+        </div>
+        
+        <div class='col-3' id='sidebar'>
+            <div id='auton'>
+                <h3>Autonomous</h3>
+                <button class='auton-button'>Auton Modes</button>
+                <div class='auton-drop'>
+                    <ul>Auto 1</ul>
+                    <ul>Auto 2</ul>
+                    <ul>Auto 3</ul>
+                </div>
+            </div>
+            
+            <div id='moduals'>
+                <button>Modual 1</button>
+                <button>Modual 2</button>
+                <button>Modual 3</button>
+            </div>
+            
+            <div id='util'>
+                <p>This area is for fine tuning of the robot. Put in extra buttons or inputs or sliders or whatever suits your fancy for your particular case</p>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
