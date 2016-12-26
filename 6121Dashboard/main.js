@@ -23,7 +23,7 @@ function switchCam() {
     var tempSrc = frontCam.src;
     frontCam.src = rearCam.src;
     rearCam.src = tempSrc;
-    printLog("cams switched");
+    printLog("Camera Switched");
 }
 
 
