@@ -10,6 +10,7 @@ var auto3 = document.getElementById("a3");
 
 var logTxt = "";
 var logCount = 0;
+var autonMode = "";
 
 function printLog(txt) {
     logTxt += "<br />";
@@ -24,3 +25,20 @@ function switchCam() {
     rearCam.src = tempSrc;
     printLog("cams switched");
 }
+
+
+auto1.addEventListener("click", function () {
+    autonMode = "Auton1";
+    printLog("Auton Mode:<span class='red'> Auto 1</span>");
+});
+
+auto2.addEventListener("click", function () {
+    autonMode = "Auton2";
+    printLog("Auton Mode:<span class='red'>  Auto 2</span>");
+});
+
+auto3.addEventListener("click", function () {
+    autonMode = "Auton3";
+    printLog("Auton Mode:<span class='red'>  Auto 3</span>");
+});
+
