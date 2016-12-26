@@ -74,6 +74,10 @@ body {
     color: #d3d3d3;
 }
 
+#logger span.red {
+    color: #ff0000;
+}
+
 #sidebar {
     background-color: #333333;
     border-radius: 7px;
