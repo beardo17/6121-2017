@@ -103,13 +103,14 @@ button:hover {
 
 #auton {
     position: relative;
-    display: inline-block;
+    display: block;
     margin-bottom: 25px;
 }
 
-#auton h3 {
+h3 {
     border-bottom: 2px;
     border-bottom-color: #d3d3d3;
+    border-bottom-style: solid;
 }
 
 .drop {
@@ -129,5 +130,9 @@ button:hover {
 }
 
 .drop:hover .auton-drop {
+    display: block;
+}
+
+#moduals {
     display: block;
 }
