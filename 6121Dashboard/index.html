@@ -15,7 +15,7 @@
             <h1>Teleop</h1>
         </div>
         
-        <div class='col-6'>
+        <div class='col-6' id='cameras'>
             <div id='primary-cam'>
                 <img id='front' src="images/placeholder-image.png"/>
             </div>
@@ -36,15 +36,18 @@
         <div class='col-3' id='sidebar'>
             <div id='auton'>
                 <h3>Autonomous</h3>
-                <button class='auton-button'>Auton Modes</button>
-                <div class='auton-drop'>
-                    <ul>Auto 1</ul>
-                    <ul>Auto 2</ul>
-                    <ul>Auto 3</ul>
+                <div class='drop'>
+                    <button class='dropbtn' id='auton-button'>Auton Modes</button>
+                    <div class='auton-drop'>
+                        <button id='a1'>Auto 1</button>
+                        <button id='a2'>Auto 2</button>
+                        <button id='a3'>Auto 3</button>
+                    </div>
                 </div>
             </div>
             
             <div id='moduals'>
+                <h3>Moduals</h3>
                 <button>Modual 1</button>
                 <button>Modual 2</button>
                 <button>Modual 3</button>
@@ -52,8 +55,10 @@
             
             <div id='util'>
                 <p>This area is for fine tuning of the robot. Put in extra buttons or inputs or sliders or whatever suits your fancy for your particular case</p>
+                <button id='logTxtFile'>Create Log File</button>
             </div>
         </div>
         <script src="main.js"></script>
+        <script src="/networktables/networktables.js"></script>
     </body>
 </html>

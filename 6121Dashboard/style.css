@@ -1,5 +1,5 @@
 html {
-    background-color: #386ee8;
+    background-color: #3c95ed;
 }
 
 body {
@@ -43,6 +43,11 @@ body {
     
 }
 
+#cameras {
+    background-color: #333333;
+    border-radius: 7px;
+}
+
 #primary-cam img {
     width: 480px;
     height: 360px;
@@ -66,12 +71,68 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #333333;
-}
-
-#logger p {
     color: #d3d3d3;
 }
 
+#logger span.red {
+    color: #ff0000;
+}
+
 #sidebar {
-    
+    background-color: #333333;
+    border-radius: 7px;
+    color: #d3d3d3;
+}
+
+button {
+    padding: 5px;
+    width: inherit;
+    color: #d3d3d3;
+    border-style: none;
+    border-radius: 0px;
+    height: 35px;
+    width: inherit;
+    background-color: #5c5c5c;
+    font-size: 15px;
+    padding: 10px, 5px;
+}
+
+button:hover {
+    background-color: #727272;
+}
+
+#auton {
+    position: relative;
+    display: block;
+    margin-bottom: 25px;
+}
+
+h3 {
+    border-bottom: 2px;
+    border-bottom-color: #d3d3d3;
+    border-bottom-style: solid;
+}
+
+.drop {
+    margin-left: 20px;
+}
+
+.auton-drop {
+    display: none;
+    position: absolute;
+}
+
+.auton-drop button {
+    display: block;
+    color: #d3d3d3;
+    text-decoration: none;
+    min-width: 160px;
+}
+
+.drop:hover .auton-drop {
+    display: block;
+}
+
+#moduals {
+    display: block;
 }
