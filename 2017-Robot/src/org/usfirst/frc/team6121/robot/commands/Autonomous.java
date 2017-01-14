@@ -27,7 +27,7 @@ public class Autonomous extends CommandGroup {
         // arm.
     	
     	addSequential(new DriveForward());
-    	addParallel(new WaitCommand(1));
+    	addParallel(new WaitCommand(2));
     	addSequential(new StopDriving());
     	
     }
