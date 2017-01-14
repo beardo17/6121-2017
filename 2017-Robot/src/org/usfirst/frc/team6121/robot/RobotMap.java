@@ -1,8 +1,9 @@
 package org.usfirst.frc.team6121.robot;
 
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -31,10 +32,10 @@ public class RobotMap {
 	
 	/****** Speed Controllers *******/
 	
-	public static SpeedController flMotor = new Talon(Front_Left_Motor);
-	public static SpeedController rlMotor = new Talon(Rear_Left_Motor);
-	public static SpeedController frMotor = new Talon(Front_Right_Motor);
-	public static SpeedController rrMotor = new Talon(Rear_Right_Motor);
+	public static SpeedController flMotor = new Spark(Front_Left_Motor);
+	public static SpeedController rlMotor = new Spark(Rear_Left_Motor);
+	public static SpeedController frMotor = new Victor(Front_Right_Motor);
+	public static SpeedController rrMotor = new Victor(Rear_Right_Motor);
 	
 	public static RobotDrive DriveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
 	
