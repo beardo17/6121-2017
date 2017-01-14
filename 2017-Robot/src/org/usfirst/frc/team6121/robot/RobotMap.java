@@ -30,8 +30,8 @@ public class RobotMap {
 	
 	/******* SPEED CONTROLLERS *****/
 	
-	public static SpeedController flMotor = new Talon(FRONT_LEFT_MOTOR);
-	public static SpeedController rlMotor = new Talon(REAR_LEFT_MOTOR);
+	public static SpeedController flMotor = new Spark(FRONT_LEFT_MOTOR);
+	public static SpeedController rlMotor = new Spark(REAR_LEFT_MOTOR);
 	public static SpeedController frMotor = new Talon(FRONT_RIGHT_MOTOR);
 	public static SpeedController rrMotor = new Talon(REAR_RIGHT_MOTOR);
 	
