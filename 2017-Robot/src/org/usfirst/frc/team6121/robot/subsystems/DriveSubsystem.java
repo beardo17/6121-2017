@@ -33,5 +33,9 @@ public class DriveSubsystem extends Subsystem {
     	RobotMap.driveTrain.setLeftRightMotorOutputs(a, a);
     }
     
+    public void turnLeft(double a) {
+    	RobotMap.driveTrain.setLeftRightMotorOutputs(-a, a);
+    }
+    
 }
 
