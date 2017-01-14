@@ -1,12 +1,13 @@
 
 package org.usfirst.frc.team6121.robot;
 
+import org.usfirst.frc.team6121.robot.commands.Autonomous;
+import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team6121.robot.commands.ArcadeDrive;
-import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -32,21 +33,12 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new ArcadeDrive());
+        chooser.addDefault("Default Auto", new Autonomous());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
     
     
-    
-    
-    
-    //Connor Was Here
-    
-    
-    
-    
-	
 	/**
      * This function is called once each time the robot enters Disabled mode.
      * You can use it to reset any subsystem information you want to clear when
