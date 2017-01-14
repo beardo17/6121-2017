@@ -37,6 +37,16 @@ public class Robot extends IterativeRobot {
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
+    
+    
+    
+    
+    
+    //Connor Was Here
+    
+    
+    
+    
 	
 	/**
      * This function is called once each time the robot enters Disabled mode.
