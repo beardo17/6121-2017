@@ -1,4 +1,9 @@
 package org.usfirst.frc.team6121.robot;
+
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -6,6 +11,37 @@ package org.usfirst.frc.team6121.robot;
  * floating around.
  */
 public class RobotMap {
+	
+	
+	/****** Motors ********/
+	
+	public static int Front_Left_Motor = 0;
+	public static int Rear_Left_Motor = 1;
+	public static int Front_Right_Motor = 2;
+	public static int Rear_Right_Motor = 3;
+	
+	/****** Controller ******/
+	
+	public static final int XBOX_CONTROLLER = 0;
+	
+	public static final int Y_AXIS = 1;
+	public static final int X_AXIS = 2;
+	
+	public static final int A_BUTTON = 1;
+	
+	/****** Speed Controllers *******/
+	
+	public static SpeedController flMotor = new Talon(Front_Left_Motor);
+	public static SpeedController rlMotor = new Talon(Rear_Left_Motor);
+	public static SpeedController frMotor = new Talon(Front_Right_Motor);
+	public static SpeedController rrMotor = new Talon(Rear_Right_Motor);
+	
+	public static RobotDrive DriveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
+	
+	}
+	
+	
+	
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
     // public static int leftMotor = 1;
@@ -15,4 +51,4 @@ public class RobotMap {
     // number and the module. For example you with a rangefinder:
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
-}
+
