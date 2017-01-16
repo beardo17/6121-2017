@@ -9,9 +9,14 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveBackward extends Command {
 
-    public DriveBackward() {
+	private double speed;
+	
+    public DriveBackward(double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.driveSubsystem);
+    	
+    	this.speed = speed;
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +25,7 @@ public class DriveBackward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveSubsystem.drivebackward(.25);
+    	Robot.driveSubsystem.drivebackward(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

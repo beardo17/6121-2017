@@ -19,7 +19,7 @@ public class OI {
 		xboxController = new Joystick(RobotMap.XBOX_CONTROLLER);
 		
 		Button driveButton = new JoystickButton(xboxController, RobotMap.A_BUTTON);
-		driveButton.whileHeld(new DriveForward());
+		driveButton.whileHeld(new DriveForward(0.25));
 		
 	}
 	
