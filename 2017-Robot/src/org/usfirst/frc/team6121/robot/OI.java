@@ -31,5 +31,9 @@ public class OI {
 		return xboxController.getRawAxis(RobotMap.X_AXIS);
 	}
 	
+	public double getRTrigger() {
+		return xboxController.getRawAxis(RobotMap.R_TRIGGER);
+	}
+	
 }
 

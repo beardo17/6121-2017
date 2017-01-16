@@ -17,7 +17,7 @@ public class DriveSubsystem extends Subsystem {
     // here. Call these from Commands.
 	
 	public double x = Robot.oi.getX();
-	public double y = Robot.oi.getY();
+	public double y = Robot.oi.getY() * (Robot.oi.getRTrigger() + 0.5);
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

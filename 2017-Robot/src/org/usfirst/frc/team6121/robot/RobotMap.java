@@ -26,6 +26,7 @@ public class RobotMap {
 	
 	public static final int Y_AXIS = 1;
 	public static final int X_AXIS = 2;
+	public static final int R_TRIGGER = 3;
 	
 	public static final int A_BUTTON = 1;
 	
