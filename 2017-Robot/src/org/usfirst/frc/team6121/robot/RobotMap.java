@@ -3,6 +3,7 @@ package org.usfirst.frc.team6121.robot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 
 /**
@@ -34,13 +35,13 @@ public class RobotMap {
 	
 	/******* SPEED CONTROLLERS *****/
 	
-	public static SpeedController flMotor = new Spark(FRONT_LEFT_MOTOR);
-	public static SpeedController rlMotor = new Spark(REAR_LEFT_MOTOR);
+	public static SpeedController flMotor = new Victor(FRONT_LEFT_MOTOR);
+	public static SpeedController rlMotor = new Victor(REAR_LEFT_MOTOR);
 	public static SpeedController frMotor = new Victor(FRONT_RIGHT_MOTOR);
 	public static SpeedController rrMotor = new Victor(REAR_RIGHT_MOTOR);
 	
 	public static RobotDrive driveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
 	
-	public static SpeedController climbMotor = new Victor(CLIMB_MOTOR);
+	public static SpeedController climbMotor = new Talon(CLIMB_MOTOR);
 	
 }
