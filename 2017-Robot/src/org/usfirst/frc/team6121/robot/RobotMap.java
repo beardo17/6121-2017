@@ -23,6 +23,10 @@ public class RobotMap {
 	
 	public static final int CLIMB_MOTOR = 4;
 	
+	public static final int SHOOTER_MOTOR = 5;
+	
+	public static final int BALL_INTAKE_MOTOR = 6;
+	
 	/********* CONTROLLERS *********/
 	
 	public static final int XBOX_CONTROLLER = 0;
@@ -43,5 +47,9 @@ public class RobotMap {
 	public static RobotDrive driveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
 	
 	public static SpeedController climbMotor = new Talon(CLIMB_MOTOR);
+	
+	public static SpeedController shooterMotor = new Talon(SHOOTER_MOTOR);
+	
+	public static SpeedController ballIntakeMotor = new Spark(BALL_INTAKE_MOTOR);
 	
 }
