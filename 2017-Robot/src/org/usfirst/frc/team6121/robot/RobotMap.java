@@ -20,6 +20,8 @@ public class RobotMap {
 	public static final int FRONT_RIGHT_MOTOR = 2;
 	public static final int REAR_RIGHT_MOTOR = 3;
 	
+	public static final int CLIMB_MOTOR = 4;
+	
 	/********* CONTROLLERS *********/
 	
 	public static final int XBOX_CONTROLLER = 0;
@@ -38,5 +40,7 @@ public class RobotMap {
 	public static SpeedController rrMotor = new Victor(REAR_RIGHT_MOTOR);
 	
 	public static RobotDrive driveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
+	
+	public static SpeedController climbMotor = new Victor(CLIMB_MOTOR);
 	
 }
