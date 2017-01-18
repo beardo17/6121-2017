@@ -1,8 +1,10 @@
 
 package org.usfirst.frc.team6121.robot;
 
+import org.usfirst.frc.team6121.robot.subsystems.BallIntakeSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
+import org.usfirst.frc.team6121.robot.subsystems.ShooterSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -21,6 +23,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveSubsystem driveSubsystem;
 	public static ClimbSubsystem climbSubsystem;
+	public static BallIntakeSubsystem ballIntakeSubsystem;
+	public static ShooterSubsystem shooterSubsystem;
 
     Command autonomousCommand;
 //    SendableChooser<Autonomous> chooser;
@@ -33,6 +37,8 @@ public class Robot extends IterativeRobot {
     	RobotMap.init();
     	driveSubsystem = new DriveSubsystem();
     	climbSubsystem = new ClimbSubsystem();
+    	ballIntakeSubsystem = new BallIntakeSubsystem();
+    	shooterSubsystem = new ShooterSubsystem();
 		oi = new OI();
 
 //        chooser = new SendableChooser<Autonomous>();

@@ -1,7 +1,9 @@
 package org.usfirst.frc.team6121.robot;
 
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 
 /**
@@ -22,6 +24,12 @@ public class RobotMap {
 	
 	public static final int CLIMB_MOTOR_1 = 4;
 	public static final int CLIMB_MOTOR_2 = 5;
+	
+	public static final int BALL_INTAKE_MOTOR = 6;
+	
+	public static final int SHOOTER_MOTOR = 7;
+	
+	public static final int AGITATOR_MOTOR = 8;
 
 //	public static final int SHOOTER_MOTOR = 5;
 
@@ -34,8 +42,10 @@ public class RobotMap {
 	public static final int X_AXIS = 0;
 	public static final int Y_AXIS = 1;
 	public static final int R_TRIGGER = 3;
+	public static final int L_TRIGGER = 4;
 	
 	public static final int A_BUTTON = 1;
+	public static final int R_BUTTON = 2;
 	
 	public static SpeedController flMotor;
 	public static SpeedController rlMotor;
@@ -46,6 +56,12 @@ public class RobotMap {
 	
 	public static SpeedController climbMotor_1;
 	public static SpeedController climbMotor_2;
+	
+	public static SpeedController ballIntakeMotor;
+	
+	public static SpeedController shooterMotor;
+	
+	public static SpeedController agitatorMotor;
 	
 	public static void init()  {
 	
@@ -65,6 +81,12 @@ public class RobotMap {
 	
 	climbMotor_1 = new Victor(CLIMB_MOTOR_1);
 	climbMotor_2 = new Victor(CLIMB_MOTOR_2);
+	
+	ballIntakeMotor = new Spark(BALL_INTAKE_MOTOR);
+	
+	shooterMotor = new Talon(SHOOTER_MOTOR);
+	
+	agitatorMotor = new Spark(AGITATOR_MOTOR);
 	
 //	public static SpeedController shooterMotor = new Talon(SHOOTER_MOTOR);
 //	
