@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team6121.robot.subsystems;
 
-import org.usfirst.frc.team6121.robot.Robot;
 import org.usfirst.frc.team6121.robot.RobotMap;
 import org.usfirst.frc.team6121.robot.commands.ArcadeDrive;
 
@@ -33,14 +32,8 @@ public class DriveSubsystem extends Subsystem {
     	RobotMap.driveTrain.setLeftRightMotorOutputs(a, a);
     }
     
-    public void turnLeft(double a) {
-    	RobotMap.driveTrain.setLeftRightMotorOutputs(-a, a);
-    }
-    public void turnRight(double a) {
-    	RobotMap.driveTrain.setLeftRightMotorOutputs(a, -a);
-    }
-    public void drivebackward(double a) {
-    	RobotMap.driveTrain.setLeftRightMotorOutputs(-a, -a);
+    public void drive(double m, double c) {
+    	RobotMap.driveTrain.drive(m, c);
     }
 }
 

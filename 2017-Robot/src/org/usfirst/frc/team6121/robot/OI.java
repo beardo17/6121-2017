@@ -1,7 +1,7 @@
 package org.usfirst.frc.team6121.robot;
 
 
-import org.usfirst.frc.team6121.robot.commands.DriveForward;
+import org.usfirst.frc.team6121.robot.commands.Drive;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -19,17 +19,7 @@ public class OI {
 		xboxController = new Joystick(RobotMap.XBOX_CONTROLLER);
 		
 		Button driveButton = new JoystickButton(xboxController, RobotMap.A_BUTTON);
-
-		driveButton.whileHeld(new DriveForward(0.25));
+		driveButton.whileHeld(new Drive(0.25, 0));
 	}
-	
-	public double getY() {
-		return xboxController.getRawAxis(RobotMap.Y_AXIS);
-	}
-	
-	public double getX() {
-		return xboxController.getRawAxis(RobotMap.X_AXIS);
-	}
-	
 }
 

@@ -7,16 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class TurnLeft extends Command {
-	
-	private double speed;
+public class Drive extends Command {
+	private double move;
+	private double curve;
 
-    public TurnLeft(double speed) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public Drive(double move, double curve) {
     	requires(Robot.driveSubsystem);
-    	this.speed = speed;
-    	
+    	this.move = move;
+    	this.curve = curve;
     }
 
     // Called just before this Command runs the first time
@@ -25,7 +23,7 @@ public class TurnLeft extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveSubsystem.turnLeft(speed);
+    	Robot.driveSubsystem.drive(move, curve);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,12 +33,10 @@ public class TurnLeft extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveSubsystem.driveForward(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }
