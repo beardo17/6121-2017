@@ -2,7 +2,6 @@
 package org.usfirst.frc.team6121.robot;
 
 import org.usfirst.frc.team6121.robot.commands.Autonomous;
-import org.usfirst.frc.team6121.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -37,6 +36,7 @@ public class Robot extends IterativeRobot {
     	driveSubsystem = new DriveSubsystem();
     	climbSubsystem = new ClimbSubsystem();
 		oi = new OI();
+
 //        chooser = new SendableChooser<Autonomous>();
 //        chooser.addDefault("Default Auto", new Autonomous());
 ////        chooser.addObject("My Auto", new MyAutoCommand());

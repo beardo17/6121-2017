@@ -3,7 +3,6 @@ package org.usfirst.frc.team6121.robot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 
 /**
@@ -14,6 +13,7 @@ import edu.wpi.first.wpilibj.Victor;
  */
 public class RobotMap {
 	
+
 	/************ MOTORS ***********/
 	
 	public static final int FRONT_LEFT_MOTOR = 0;

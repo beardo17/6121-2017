@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6121.robot;
 
+
 import org.usfirst.frc.team6121.robot.commands.DriveForward;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -11,7 +12,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	
 	public static Joystick xboxController;
 	
 	OI() {
@@ -19,8 +19,8 @@ public class OI {
 		xboxController = new Joystick(RobotMap.XBOX_CONTROLLER);
 		
 		Button driveButton = new JoystickButton(xboxController, RobotMap.A_BUTTON);
+
 		driveButton.whileHeld(new DriveForward(0.25));
-		
 	}
 	
 	public double getY() {
@@ -29,10 +29,6 @@ public class OI {
 	
 	public double getX() {
 		return xboxController.getRawAxis(RobotMap.X_AXIS);
-	}
-	
-	public double getRTrigger() {
-		return xboxController.getRawAxis(RobotMap.R_TRIGGER);
 	}
 	
 }
