@@ -20,34 +20,30 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final DriveSubsystem DriveSubsystem = new DriveSubsystem();
 	public static OI oi;
+	public static DriveSubsystem driveSubsystem;
+	public static ClimbSubsystem climbSubsystem;
 
     Command autonomousCommand;
-    SendableChooser chooser;
+//    SendableChooser<Autonomous> chooser;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+    	RobotMap.init();
+    	driveSubsystem = new DriveSubsystem();
+    	climbSubsystem = new ClimbSubsystem();
 		oi = new OI();
-        chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new Autonomous());
-//        chooser.addObject("My Auto", new MyAutoCommand());
-        SmartDashboard.putData("Auto mode", chooser);
+
+//        chooser = new SendableChooser<Autonomous>();
+//        chooser.addDefault("Default Auto", new Autonomous());
+////        chooser.addObject("My Auto", new MyAutoCommand());
+//        SmartDashboard.putData("Auto mode", chooser);
     }
     
     
-    
-    
-    
-    //Connor Was Here
-    
-    
-    
-    
-	
 	/**
      * This function is called once each time the robot enters Disabled mode.
      * You can use it to reset any subsystem information you want to clear when
@@ -71,7 +67,7 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        autonomousCommand = (Command) chooser.getSelected();
+//        autonomousCommand = (Command) chooser.getSelected();
         
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {

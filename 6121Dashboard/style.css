@@ -1,0 +1,138 @@
+html {
+    background-color: #3c95ed;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 2%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+#header {
+    font-family: sans-serif;
+} 
+
+#robot-state {
+    
+}
+
+#cameras {
+    background-color: #333333;
+    border-radius: 7px;
+}
+
+#primary-cam img {
+    width: 480px;
+    height: 360px;
+}
+
+#secondary-cam img {
+    width: 156px;
+    height: 116px;
+    margin: 2px;
+}
+
+#logger {
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    margin-top: 15px;
+    border-width: 10px;
+    border-color: #000000;
+    border-radius: 7px;
+    padding: 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #333333;
+    color: #d3d3d3;
+}
+
+#logger span.red {
+    color: #ff0000;
+}
+
+#sidebar {
+    background-color: #333333;
+    border-radius: 7px;
+    color: #d3d3d3;
+}
+
+button {
+    padding: 5px;
+    width: inherit;
+    color: #d3d3d3;
+    border-style: none;
+    border-radius: 0px;
+    height: 35px;
+    width: inherit;
+    background-color: #5c5c5c;
+    font-size: 15px;
+    padding: 10px, 5px;
+}
+
+button:hover {
+    background-color: #727272;
+}
+
+#auton {
+    position: relative;
+    display: block;
+    margin-bottom: 25px;
+}
+
+h3 {
+    border-bottom: 2px;
+    border-bottom-color: #d3d3d3;
+    border-bottom-style: solid;
+}
+
+.drop {
+    margin-left: 20px;
+}
+
+.auton-drop {
+    display: none;
+    position: absolute;
+}
+
+.auton-drop button {
+    display: block;
+    color: #d3d3d3;
+    text-decoration: none;
+    min-width: 160px;
+}
+
+.drop:hover .auton-drop {
+    display: block;
+}
+
+#moduals {
+    display: block;
+}

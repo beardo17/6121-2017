@@ -1,9 +1,10 @@
+
 package org.usfirst.frc.team6121.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
-/**
+/**connor
  *
  */
 public class Autonomous extends CommandGroup {
@@ -26,8 +27,9 @@ public class Autonomous extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new DriveFoward());
-    	addParallel(new WaitCommand(1));
+    	addSequential(new DriveForward(0.25));
+    	addParallel(new WaitCommand(2));
     	addSequential(new StopDriving());
+    	
     }
 }

@@ -1,3 +1,4 @@
+
 package org.usfirst.frc.team6121.robot.commands;
 
 import org.usfirst.frc.team6121.robot.Robot;
@@ -12,7 +13,7 @@ public class StopDriving extends Command {
     public StopDriving() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.DriveSubsystem);
+    	requires(Robot.driveSubsystem);
     }
 
     // Called just before this Command runs the first time
@@ -21,9 +22,8 @@ public class StopDriving extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.DriveSubsystem.driveFoward(0);
+    	Robot.driveSubsystem.driveForward(0);
     }
-    
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

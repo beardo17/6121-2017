@@ -13,43 +13,59 @@ import edu.wpi.first.wpilibj.Victor;
  */
 public class RobotMap {
 	
+
+	/************ MOTORS ***********/
 	
-	/****** Motors ********/
+	public static final int FRONT_LEFT_MOTOR = 0;
+	public static final int REAR_LEFT_MOTOR = 1;
+	public static final int FRONT_RIGHT_MOTOR = 2;
+	public static final int REAR_RIGHT_MOTOR = 3;
 	
-	public static int Front_Left_Motor = 0;
-	public static int Rear_Left_Motor = 1;
-	public static int Front_Right_Motor = 2;
-	public static int Rear_Right_Motor = 3;
+//	public static final int CLIMB_MOTOR = 4;
+//	
+//	public static final int SHOOTER_MOTOR = 5;
+//	
+//	public static final int BALL_INTAKE_MOTOR = 6;
 	
-	/****** Controller ******/
+	/********* CONTROLLERS *********/
 	
 	public static final int XBOX_CONTROLLER = 0;
 	
 	public static final int Y_AXIS = 1;
 	public static final int X_AXIS = 2;
+	public static final int R_TRIGGER = 3;
 	
 	public static final int A_BUTTON = 1;
 	
-	/****** Speed Controllers *******/
+	public static SpeedController flMotor;
+	public static SpeedController rlMotor;
+	public static SpeedController frMotor;
+	public static SpeedController rrMotor;
 	
-	public static SpeedController flMotor = new Spark(Front_Left_Motor);
-	public static SpeedController rlMotor = new Spark(Rear_Left_Motor);
-	public static SpeedController frMotor = new Victor(Front_Right_Motor);
-	public static SpeedController rrMotor = new Victor(Rear_Right_Motor);
+	public static RobotDrive driveTrain;
 	
-	public static RobotDrive DriveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
+	public static void init()  {
+	
+	/******* SPEED CONTROLLERS *****/
+	
+	flMotor = new Victor(FRONT_LEFT_MOTOR);
+	rlMotor = new Victor(REAR_LEFT_MOTOR);
+	frMotor = new Victor(FRONT_RIGHT_MOTOR);
+	rrMotor = new Victor(REAR_RIGHT_MOTOR);
+	
+	driveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
+	
+	driveTrain.setSafetyEnabled(true);
+	driveTrain.setExpiration(0.1);
+	driveTrain.setSensitivity(0.5);
+	driveTrain.setMaxOutput(1.0);
+	
+//	public static SpeedController climbMotor = new Talon(CLIMB_MOTOR);
+//	
+//	public static SpeedController shooterMotor = new Talon(SHOOTER_MOTOR);
+//	
+//	public static SpeedController ballIntakeMotor = new Spark(BALL_INTAKE_MOTOR);
 	
 	}
 	
-	
-	
-    // For example to map the left and right motors, you could define the
-    // following variables to use with your drivetrain subsystem.
-    // public static int leftMotor = 1;
-    // public static int rightMotor = 2;
-    
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static int rangefinderPort = 1;
-    // public static int rangefinderModule = 1;
-
+}

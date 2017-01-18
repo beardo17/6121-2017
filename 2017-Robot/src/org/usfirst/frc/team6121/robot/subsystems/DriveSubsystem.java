@@ -16,21 +16,31 @@ public class DriveSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-	public double x = Robot.oi.getX();
-	public double y = Robot.oi.getY();
-    
-	public void initDefaultCommand() {
+
+    public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-		setDefaultCommand(new ArcadeDrive());
+    	setDefaultCommand(new ArcadeDrive());
     }
     
     public void arcadeDrive(Joystick stick) {
-    	RobotMap.DriveTrain.arcadeDrive(y, -x, false);
+    	double x = stick.getRawAxis(RobotMap.X_AXIS);
+    	double y = stick.getRawAxis(RobotMap.Y_AXIS) * (stick.getRawAxis(RobotMap.R_TRIGGER) + 0.5);
+    	RobotMap.driveTrain.arcadeDrive(y, -x, false);
     }
     
-    public void driveFoward(double a) {
-    	RobotMap.DriveTrain.setLeftRightMotorOutputs(a, a);
+    public void driveForward(double a) {
+    	RobotMap.driveTrain.setLeftRightMotorOutputs(a, a);
+    }
+    
+    public void turnLeft(double a) {
+    	RobotMap.driveTrain.setLeftRightMotorOutputs(-a, a);
+    }
+    public void turnRight(double a) {
+    	RobotMap.driveTrain.setLeftRightMotorOutputs(a, -a);
+    }
+    public void drivebackward(double a) {
+    	RobotMap.driveTrain.setLeftRightMotorOutputs(-a, -a);
     }
 }
 
