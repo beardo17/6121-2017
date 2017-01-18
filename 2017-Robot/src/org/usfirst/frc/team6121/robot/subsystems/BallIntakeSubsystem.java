@@ -20,5 +20,5 @@ public class BallIntakeSubsystem extends Subsystem {
     public void ballIntake(double i) {
     	RobotMap.ballIntakeMotor.set(i);
     }
+    
 }
-
