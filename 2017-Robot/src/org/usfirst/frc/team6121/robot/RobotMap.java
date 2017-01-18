@@ -37,19 +37,35 @@ public class RobotMap {
 	
 	public static final int A_BUTTON = 1;
 	
+	public static SpeedController flMotor;
+	public static SpeedController rlMotor;
+	public static SpeedController frMotor;
+	public static SpeedController rrMotor;
+	
+	public static RobotDrive driveTrain;
+	
+	public static void init()  {
+	
 	/******* SPEED CONTROLLERS *****/
 	
-	public static SpeedController flMotor = new Victor(FRONT_LEFT_MOTOR);
-	public static SpeedController rlMotor = new Victor(REAR_LEFT_MOTOR);
-	public static SpeedController frMotor = new Victor(FRONT_RIGHT_MOTOR);
-	public static SpeedController rrMotor = new Victor(REAR_RIGHT_MOTOR);
+	flMotor = new Victor(FRONT_LEFT_MOTOR);
+	rlMotor = new Victor(REAR_LEFT_MOTOR);
+	frMotor = new Victor(FRONT_RIGHT_MOTOR);
+	rrMotor = new Victor(REAR_RIGHT_MOTOR);
 	
-	public static RobotDrive driveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
+	driveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
+	
+	driveTrain.setSafetyEnabled(true);
+	driveTrain.setExpiration(0.1);
+	driveTrain.setSensitivity(0.5);
+	driveTrain.setMaxOutput(1.0);
 	
 //	public static SpeedController climbMotor = new Talon(CLIMB_MOTOR);
 //	
 //	public static SpeedController shooterMotor = new Talon(SHOOTER_MOTOR);
 //	
 //	public static SpeedController ballIntakeMotor = new Spark(BALL_INTAKE_MOTOR);
+	
+	}
 	
 }
