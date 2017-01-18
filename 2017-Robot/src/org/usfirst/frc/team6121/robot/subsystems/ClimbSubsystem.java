@@ -20,7 +20,7 @@ public class ClimbSubsystem extends Subsystem {
     }
     
     public void climbing(double d) {
-    	RobotMap.climbMotor.set(d);
+//    	RobotMap.climbMotor.set(d);
     }
 
 

@@ -21,9 +21,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
-	public static final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
 	public static OI oi;
+	public static DriveSubsystem driveSubsystem;
+	public static ClimbSubsystem climbSubsystem;
 
     Command autonomousCommand;
     SendableChooser<Autonomous> chooser;
@@ -33,6 +33,8 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+    	driveSubsystem = new DriveSubsystem();
+    	climbSubsystem = new ClimbSubsystem();
 		oi = new OI();
         chooser = new SendableChooser<Autonomous>();
         chooser.addDefault("Default Auto", new Autonomous());

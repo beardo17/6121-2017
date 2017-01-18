@@ -21,11 +21,11 @@ public class RobotMap {
 	public static final int FRONT_RIGHT_MOTOR = 2;
 	public static final int REAR_RIGHT_MOTOR = 3;
 	
-	public static final int CLIMB_MOTOR = 4;
-	
-	public static final int SHOOTER_MOTOR = 5;
-	
-	public static final int BALL_INTAKE_MOTOR = 6;
+//	public static final int CLIMB_MOTOR = 4;
+//	
+//	public static final int SHOOTER_MOTOR = 5;
+//	
+//	public static final int BALL_INTAKE_MOTOR = 6;
 	
 	/********* CONTROLLERS *********/
 	
@@ -46,10 +46,10 @@ public class RobotMap {
 	
 	public static RobotDrive driveTrain = new RobotDrive(flMotor, rlMotor, frMotor, rrMotor);
 	
-	public static SpeedController climbMotor = new Talon(CLIMB_MOTOR);
-	
-	public static SpeedController shooterMotor = new Talon(SHOOTER_MOTOR);
-	
-	public static SpeedController ballIntakeMotor = new Spark(BALL_INTAKE_MOTOR);
+//	public static SpeedController climbMotor = new Talon(CLIMB_MOTOR);
+//	
+//	public static SpeedController shooterMotor = new Talon(SHOOTER_MOTOR);
+//	
+//	public static SpeedController ballIntakeMotor = new Spark(BALL_INTAKE_MOTOR);
 	
 }
