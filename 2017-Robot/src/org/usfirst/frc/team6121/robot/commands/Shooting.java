@@ -8,11 +8,13 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Shooting extends Command {
+	private double move;
 
-    public Shooting() {
+    public Shooting(double move) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.shooterSubsystem);
+    	this.move = move;
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +23,7 @@ public class Shooting extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooterSubsystem.shooting(0.25);
+    	Robot.shooterSubsystem.shooting(move);
     }
 
     // Make this return true when this Command no longer needs to run execute()
