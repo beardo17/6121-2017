@@ -5,11 +5,13 @@ import org.usfirst.frc.team6121.robot.subsystems.BallIntakeSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.ShooterSubsystem;
+import org.usfirst.frc.team6121.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,20 +27,26 @@ public class Robot extends IterativeRobot {
 	public static ClimbSubsystem climbSubsystem;
 	public static BallIntakeSubsystem ballIntakeSubsystem;
 	public static ShooterSubsystem shooterSubsystem;
+	public static Vision vision;
 
     Command autonomousCommand;
 //    SendableChooser<Autonomous> chooser;
+    
+    public static NetworkTable table;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+    	table = NetworkTable.getTable("GRIP/targets");
+    	
     	RobotMap.init();
     	driveSubsystem = new DriveSubsystem();
     	climbSubsystem = new ClimbSubsystem();
     	ballIntakeSubsystem = new BallIntakeSubsystem();
     	shooterSubsystem = new ShooterSubsystem();
+    	vision = new Vision();
 		oi = new OI();
 
 //        chooser = new SendableChooser<Autonomous>();

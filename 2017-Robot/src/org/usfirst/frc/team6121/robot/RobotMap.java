@@ -24,16 +24,9 @@ public class RobotMap {
 	
 	public static final int CLIMB_MOTOR_1 = 4;
 	public static final int CLIMB_MOTOR_2 = 5;
-	
 	public static final int BALL_INTAKE_MOTOR = 6;
-	
 	public static final int SHOOTER_MOTOR = 7;
-	
 	public static final int AGITATOR_MOTOR = 8;
-
-//	public static final int SHOOTER_MOTOR = 5;
-
-//	public static final int BALL_INTAKE_MOTOR = 6;
 	
 	/********* CONTROLLERS *********/
 	
