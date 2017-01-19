@@ -100,7 +100,9 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+       RobotMap.agitatorMotor.set(.05);
+    	Scheduler.getInstance().run();
+        
     }
 
     public void teleopInit() {
@@ -115,7 +117,8 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
+    	RobotMap.agitatorMotor.set(.05);
+    	Scheduler.getInstance().run();
     }
     
     /**
