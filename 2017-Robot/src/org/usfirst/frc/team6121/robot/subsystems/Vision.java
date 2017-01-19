@@ -23,7 +23,7 @@ public class Vision extends Subsystem {
 	final double bH = 10/12;
 	final double gH = 4/12;
 	final double fovP = 240;
-	final double camAngle = 34.3;
+	final double camVertAngle = 34.3; //TODO: Check the vertical camera angle
 	double tP;
 	
 	public enum Target {
@@ -50,9 +50,9 @@ public class Vision extends Subsystem {
     public Target getTarget() {
     	Target target = Target.None;
     	double blRatio, bhRatio, bwRatio, blScore, bhScore, bwScore;
-    	double glRatio, ghRatio, gwRatio, glScore, ghScore, gwScore;
+    	double gtRatio, ghRatio, gwRatio, gtScore, ghScore, gwScore;
     	for (int i = 0; i < areas.length - 1; i++) {
-    		blRatio = ((centerX[i] - (width[i]) - (centerX[i+1] - (width[i+1])) / width[i]) + 1);
+    		blRatio = ((centerX[i] - (width[i] / 2) - (centerX[i+1] - (width[i+1])) / width[i]) + 1);
     		bhRatio = (height[i] / (height[i+1] * 2));
     		bwRatio = (width[i] / width[i+1]);
     		
@@ -62,7 +62,26 @@ public class Vision extends Subsystem {
     		
     		if (blScore + bhScore + bwScore >= 250) {
     			target = Target.Boiler;
+    			targets[0] = i;
+    			targets[1] = i + 1;
     			break;
+    		}
+    		
+    		//TODO: Create the Gear score logic. Also the logic for detecting a spring covering
+    		//      the reflective tape.
+    		
+    		if (Math.abs(centerX[i] - centerX[i+1]) >= 5) {
+    			if (((height[i] + height[i+1]) / 2 + (centerY[i] + centerY[i+1]) / 2) - (height[i+2] / 2 + centerY[i+2]) >= 5) {
+    				
+    			}
+    		} else if (Math.abs(centerX[i+1] - centerX[i+2]) >= 5) {
+    			if (((height[i+1] + height[i+2]) / 2 + (centerY[i+1] + centerY[i+2]) / 2) - (height[i] / 2 + centerY[i]) >= 5) {
+    				
+    			}
+    		} else {
+    			gtRatio = ((centerY[i] + (height[i] / 2) - (centerY[i+1] + (height[i+1] / 2)) / height[i]) + 1);
+    			gwRatio = (width[i] / width[i+1]);
+    			ghRatio = (height[i] / height[i+1]);
     		}
     	}
 		return target;
@@ -74,15 +93,17 @@ public class Vision extends Subsystem {
     	for (int i = 0; i < targets.length; i++) {
     		switch (t) {
     		case Boiler:
-    			T = centerY[targets[i]] + (height[targets[i]] / 2);
-    			B = centerY[targets[i]] - (height[targets[i]] / 2);
+    			T = (centerY[targets[0]] + centerY[targets[1]]) / 2 + (height[targets[0]] / 2 + height[targets[1]] / 2) / 2;
+    			B = (centerY[targets[0]] + centerY[targets[1]]) / 2 - (height[targets[0]] / 2 + height[targets[1]] / 2) / 2;
     			break;
     		case Gear:
-    			T = centerY[targets[i]] + (height[targets[i]] / 2);
-    			B = centerY[targets[i]] - (height[targets[i]] / 2);
+    			//TODO: Fix this for covered tape
+    			T = (centerY[targets[i]] + centerY[targets[i+1]]) / 2 + (height[targets[i]] / 2 + height[targets[i+1]] / 2) / 2;
+    			B = (centerY[targets[i]] + centerY[targets[i+1]]) / 2 - (height[targets[i]] / 2 + height[targets[i+1]] / 2) / 2;
     			break;
     		default:
     		}
+    		break;
     	}
     	h = T - B;
 		return h;
@@ -93,11 +114,11 @@ public class Vision extends Subsystem {
     	switch (getTarget()) {
     	case Boiler:
         	tP = getTargetHeight(Target.Boiler);
-        	d = bH * fovP / (2 * tP * Math.tan(camAngle));
+        	d = bH * fovP / (2 * tP * Math.tan(camVertAngle));
     		break;
     	case Gear:
         	tP = getTargetHeight(Target.Gear);
-        	d = bH * fovP / (2 * tP * Math.tan(camAngle));
+        	d = bH * fovP / (2 * tP * Math.tan(camVertAngle));
     		break;
     	default:
     	}

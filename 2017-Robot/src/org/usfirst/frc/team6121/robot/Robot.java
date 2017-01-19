@@ -42,11 +42,11 @@ public class Robot extends IterativeRobot {
     	table = NetworkTable.getTable("GRIP/targets");
     	
     	RobotMap.init();
+    	vision = new Vision();
     	driveSubsystem = new DriveSubsystem();
     	climbSubsystem = new ClimbSubsystem();
     	ballIntakeSubsystem = new BallIntakeSubsystem();
     	shooterSubsystem = new ShooterSubsystem();
-    	vision = new Vision();
 		oi = new OI();
 
 //        chooser = new SendableChooser<Autonomous>();
