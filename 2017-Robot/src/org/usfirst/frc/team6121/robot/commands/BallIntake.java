@@ -8,11 +8,13 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class BallIntake extends Command {
+	private double move;
 
-    public BallIntake() {
+    public BallIntake(double move) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.ballIntakeSubsystem);
+    	this.move = move;
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +23,7 @@ public class BallIntake extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.ballIntakeSubsystem.ballIntake(0.5);
+    	Robot.ballIntakeSubsystem.ballIntake(move);
     }
 
     // Make this return true when this Command no longer needs to run execute()
