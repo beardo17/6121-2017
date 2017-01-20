@@ -14,6 +14,7 @@ public class ShooterSubsystem extends Subsystem {
 	private final double angle = Math.toRadians(60);
 	private final double y = 97;
     private final double g = 32.174 * 12;
+    private final double xOffset = 0;
     
     Vision v = Robot.vision;
 
@@ -33,11 +34,12 @@ public class ShooterSubsystem extends Subsystem {
     	return (getVelocity() * 60 / (3.14159 / 3));
     }
     
-    public void aim() {
+    public double aim() {
+    	double c = 0;
     	if (v.getTarget() == Target.Boiler) {
- //   		v.getCenterX(Target.Boiler) 
-    		//TODO: Create algorithm for aiming the shooter based on the distance and offset from camera
+    		c = v.getCenterX(Target.Boiler) + xOffset;
     	}
+		return c;
     }
     
 }
