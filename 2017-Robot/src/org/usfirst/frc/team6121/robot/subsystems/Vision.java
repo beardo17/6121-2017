@@ -66,13 +66,13 @@ public class Vision extends Subsystem {
     			break;
     		}
     		
-    		if (Math.abs(centerX[i] - centerX[i+1]) >= 5) {
+    		if (Math.abs(centerX[i] - centerX[i+1]) <= 5) {
     			if (((height[i] + height[i+1]) / 2 + (centerY[i] + centerY[i+1]) / 2) - (height[i+2] / 2 + centerY[i+2]) >= 5) {
     				gtRatio = (((centerY[i] + height[i] / 2) - (centerY[i+2] + height[i+2] / 2)) / (centerY[i+2] + (height[i+2] / 2)));
     				gwRatio = (width[i] / width[i+2]);
     				ghRatio = ((centerY[i] + height[i] / 2) - (centerY[i+1] + height[i+1] / 2)) / (height[i+2]);
     			}
-    		} else if (Math.abs(centerX[i+1] - centerX[i+2]) >= 5) {
+    		} else if (Math.abs(centerX[i+1] - centerX[i+2]) <= 5) {
     			if (((height[i+1] + height[i+2]) / 2 + (centerY[i+1] + centerY[i+2]) / 2) - (height[i] / 2 + centerY[i]) >= 5) {
     				gtRatio = (((centerY[i+1] + height[i+1] / 2) - (centerY[i+2] + height[i+2] / 2)) / (centerY[i] + (height[i] / 2)));
     				gwRatio = (width[i] / width[i+2]);
@@ -109,10 +109,10 @@ public class Vision extends Subsystem {
     			B = (centerY[targets[0]] + centerY[targets[1]]) / 2 - (height[targets[0]] / 2 + height[targets[1]] / 2) / 2;
     			break;
     		case Gear:
-    			if (Math.abs(centerX[i] - centerX[i+1]) >= 5) {
+    			if (Math.abs(centerX[i] - centerX[i+1]) <= 5) {
     				T = (centerY[targets[i]] + height[targets[i]] / 2);
     				B = (centerY[targets[i+1]] + height[targets[i+1]] / 2);
-    			} else if (Math.abs(centerX[i+1] - centerX[i+2]) >= 5) {
+    			} else if (Math.abs(centerX[i+1] - centerX[i+2]) <= 5) {
     				T = (centerY[targets[i]] + height[targets[i]] / 2);
     				B = (centerY[targets[i]] + height[targets[i]] / 2);
     			} else {
@@ -141,6 +141,16 @@ public class Vision extends Subsystem {
     	default:
     	}
 		return d;
+    }
+    
+    public double getCenterX(Target t) {
+    	if (t == Target.Boiler) {
+    		return centerX[0];
+    	} else if (t == Target.Gear) {
+    		return centerX[0] * 1.025625;
+    	} else {
+    		return 0;
+    	}
     }
 }
 
