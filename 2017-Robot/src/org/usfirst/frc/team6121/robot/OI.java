@@ -4,7 +4,7 @@ package org.usfirst.frc.team6121.robot;
 import org.usfirst.frc.team6121.robot.commands.BallIntake;
 import org.usfirst.frc.team6121.robot.commands.Climbing;
 import org.usfirst.frc.team6121.robot.commands.Drive;
-import org.usfirst.frc.team6121.robot.commands.Shooting;
+import org.usfirst.frc.team6121.robot.commands.Shoot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -30,7 +30,7 @@ public class OI {
 		ballIntakeButton.whileHeld(new BallIntake(0.25));
 		
 		Button shooterTrigger = new JoystickButton(xboxController_1, RobotMap.A_BUTTON);
-		shooterTrigger.whileHeld(new Shooting(0.25));
+		shooterTrigger.whileHeld(new Shoot());
 		
 		
 	}

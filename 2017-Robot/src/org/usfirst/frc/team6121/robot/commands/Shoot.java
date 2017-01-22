@@ -1,20 +1,20 @@
 package org.usfirst.frc.team6121.robot.commands;
 
+import org.usfirst.frc.team6121.robot.OI;
 import org.usfirst.frc.team6121.robot.Robot;
+import org.usfirst.frc.team6121.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Shooting extends Command {
-	private double move;
+public class Shoot extends Command {
 
-    public Shooting(double move) {
+    public Shoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.shooterSubsystem);
-    	this.move = move;
     }
 
     // Called just before this Command runs the first time
@@ -23,7 +23,11 @@ public class Shooting extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooterSubsystem.shooting(move);
+    	if (OI.xboxController_2.getRawAxis(RobotMap.L_TRIGGER) >= 0.05) {
+    		Robot.shooterSubsystem.setRPM(Robot.shooterSubsystem.getRPM());
+    	} else {
+    		Robot.shooterSubsystem.setRPM(1200);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,7 +37,7 @@ public class Shooting extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shooterSubsystem.shooting(0);
+    	Robot.shooterSubsystem.setRPM(0);
     }
 
     // Called when another command which requires one or more of the same

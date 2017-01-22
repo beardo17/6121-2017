@@ -46,6 +46,11 @@ public class Vision extends Subsystem {
     	}
     }
     
+    /**
+     * Get Target
+     * 
+     * @return The target seen by the camera. Returns NONE if there is no valid target
+     */
     public Target getTarget() {
     	Target target = Target.None;
     	double blRatio, bhRatio, bwRatio, blScore, bhScore, bwScore;
@@ -99,6 +104,12 @@ public class Vision extends Subsystem {
 		return target;
     }
     
+    /**
+     * The height of the target seen by the camera
+     * 
+     * @param t The current Target in view 
+     * @return the height of the target
+     */
     public double getTargetHeight(Target t) {
     	double h = 0;
     	double T = 0, B = 0;
@@ -148,6 +159,16 @@ public class Vision extends Subsystem {
     		return centerX[0];
     	} else if (t == Target.Gear) {
     		return centerX[0] * 1.025625;
+    	} else {
+    		return 0;
+    	}
+    }
+    
+    public double getWidth(Target t) {
+    	if (t == Target.Boiler) {
+    		return width[0];
+    	} else if (t == Target.Gear) {
+    		return width[0] * 5.125;
     	} else {
     		return 0;
     	}

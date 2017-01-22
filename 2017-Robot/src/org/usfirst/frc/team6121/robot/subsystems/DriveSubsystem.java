@@ -35,5 +35,9 @@ public class DriveSubsystem extends Subsystem {
     public void drive(double m, double c) {
     	RobotMap.driveTrain.drive(m, c);
     }
+    
+    public void turn(double l, double r) {
+    	RobotMap.driveTrain.tankDrive(l, r, false);
+    }
 }
 

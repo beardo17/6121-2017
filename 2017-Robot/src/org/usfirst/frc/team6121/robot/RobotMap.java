@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6121.robot;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -27,6 +28,11 @@ public class RobotMap {
 	public static final int BALL_INTAKE_MOTOR = 6;
 	public static final int SHOOTER_MOTOR = 7;
 	public static final int AGITATOR_MOTOR = 8;
+
+	/************ Sensors **********/
+	
+	public static final int SHOOT_ENCODER_A = 0;
+	public static final int SHOOT_ENCODER_B = 0;
 	
 	/********* CONTROLLERS *********/
 	
@@ -60,6 +66,18 @@ public class RobotMap {
 	public static SpeedController shooterMotor;
 	public static SpeedController agitatorMotor;
 	
+	/************ Sensors **********/
+	
+	public static Encoder shooter;
+	
+	/******* PID CONSTANTS *********/
+	 
+	public static final double pShooterBadder							= 0.00023;
+	public static final double iShooterBadder							= 0.0000;
+	public static final double dShooterBadder							= 0.0000;
+	public static final double kForward									= 0.000137500;
+	public static final double bForward									= 0.080000000;
+	
 	public static void init()  {
 	
 	/******* SPEED CONTROLLERS *****/
@@ -82,10 +100,8 @@ public class RobotMap {
 	shooterMotor = new Talon(SHOOTER_MOTOR);
 	agitatorMotor = new Spark(AGITATOR_MOTOR);
 	
-//	public static SpeedController shooterMotor = new Talon(SHOOTER_MOTOR);
-//	
-//	public static SpeedController ballIntakeMotor = new Spark(BALL_INTAKE_MOTOR);
-	
+	shooter = new Encoder(SHOOT_ENCODER_A, SHOOT_ENCODER_B, false, Encoder.EncodingType.k4X);
+	shooter.setDistancePerPulse(4 * Math.PI);
 	}
 	
 }
