@@ -1,9 +1,9 @@
 package org.usfirst.frc.team6121.robot;
 
 
+import org.usfirst.frc.team6121.robot.commands.AimShot;
 import org.usfirst.frc.team6121.robot.commands.BallIntake;
 import org.usfirst.frc.team6121.robot.commands.Climbing;
-import org.usfirst.frc.team6121.robot.commands.Drive;
 import org.usfirst.frc.team6121.robot.commands.Shoot;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -26,13 +26,14 @@ public class OI {
 		Button climbButton = new JoystickButton(xboxController_1, RobotMap.A_BUTTON);
 		climbButton.whileHeld(new Climbing(0.25));
 		
-		Button ballIntakeButton = new JoystickButton(xboxController_1, RobotMap.A_BUTTON);
-		ballIntakeButton.whileHeld(new BallIntake(0.25));
+		Button ballIntakeButton = new JoystickButton(xboxController_1, RobotMap.R_BUTTON);
+		ballIntakeButton.whenPressed(new BallIntake(0.25));
 		
-		Button shooterTrigger = new JoystickButton(xboxController_1, RobotMap.A_BUTTON);
+		Button shooterTrigger = new JoystickButton(xboxController_2, RobotMap.R_BUTTON);
 		shooterTrigger.whileHeld(new Shoot());
 		
-		
+		Button aimButton = new JoystickButton(xboxController_2, RobotMap.L_BUTTON);
+		aimButton.whileHeld(new AimShot());
 	}
 	
     

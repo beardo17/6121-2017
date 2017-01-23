@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AimShot extends Command {
-	
-	private boolean aimed = false;
 
     public AimShot() {
     	requires(Robot.driveSubsystem);
@@ -25,14 +23,12 @@ public class AimShot extends Command {
     		Robot.driveSubsystem.turn(-0.2, 0.2);
     	} else if (Robot.shooterSubsystem.aimValue() < -5) {
     		Robot.driveSubsystem.turn(0.2, -0.2);
-    	} else {
-    		aimed = true;
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return aimed;
+        return false;
     }
 
     // Called once after isFinished returns true

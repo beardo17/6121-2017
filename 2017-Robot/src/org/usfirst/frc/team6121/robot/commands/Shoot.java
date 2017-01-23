@@ -1,8 +1,7 @@
 package org.usfirst.frc.team6121.robot.commands;
 
-import org.usfirst.frc.team6121.robot.OI;
 import org.usfirst.frc.team6121.robot.Robot;
-import org.usfirst.frc.team6121.robot.RobotMap;
+import org.usfirst.frc.team6121.robot.subsystems.Vision.Target;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -23,8 +22,8 @@ public class Shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (OI.xboxController_2.getRawAxis(RobotMap.L_TRIGGER) >= 0.05) {
-    		Robot.shooterSubsystem.setRPM(Robot.shooterSubsystem.getRPM());
+    	if (Robot.vision.getTarget() == Target.Boiler) {
+    		Robot.shooterSubsystem.setRPM(Robot.shooterSubsystem.toRPM());
     	} else {
     		Robot.shooterSubsystem.setRPM(1200);
     	}
