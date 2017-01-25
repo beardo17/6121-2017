@@ -72,11 +72,11 @@ public class RobotMap {
 	
 	/******* PID CONSTANTS *********/
 	 
-	public static final double pShooterBadder							= 0.00023;
-	public static final double iShooterBadder							= 0.0000;
-	public static final double dShooterBadder							= 0.0000;
-	public static final double kForward									= 0.000137500;
-	public static final double bForward									= 0.080000000;
+	public static final double pShooterBadder = 0.00023;
+	public static final double iShooterBadder = 0.0000;
+	public static final double dShooterBadder = 0.0000;
+	public static final double kForward	= 0.000137500;
+	public static final double bForward	= 0.080000000;
 	
 	public static void init()  {
 	
