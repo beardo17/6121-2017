@@ -97,7 +97,7 @@ public class RobotMap {
 	climbMotor_1 = new Victor(CLIMB_MOTOR_1);
 	climbMotor_2 = new Victor(CLIMB_MOTOR_2);
 	ballIntakeMotor = new Spark(BALL_INTAKE_MOTOR);
-	shooterMotor = new Talon(SHOOTER_MOTOR);
+	shooterMotor = new Victor(SHOOTER_MOTOR);
 	agitatorMotor = new Spark(AGITATOR_MOTOR);
 	
 	shooter = new Encoder(SHOOT_ENCODER_A, SHOOT_ENCODER_B, false, Encoder.EncodingType.k4X);

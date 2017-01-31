@@ -4,6 +4,7 @@ package org.usfirst.frc.team6121.robot;
 import org.usfirst.frc.team6121.robot.commands.AimShot;
 import org.usfirst.frc.team6121.robot.commands.BallIntake;
 import org.usfirst.frc.team6121.robot.commands.Climbing;
+import org.usfirst.frc.team6121.robot.commands.GearDeliver;
 import org.usfirst.frc.team6121.robot.commands.Shoot;
 
 import edu.wpi.first.wpilibj.Joystick;
