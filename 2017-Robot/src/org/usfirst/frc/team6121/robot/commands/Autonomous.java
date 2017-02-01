@@ -1,35 +1,99 @@
 
 package org.usfirst.frc.team6121.robot.commands;
 
+import org.usfirst.frc.team6121.robot.subsystems.AutoSubsystem;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
-/**connor
- *
+/**
+ * 
  */
 public class Autonomous extends CommandGroup {
+	
     
-    public  Autonomous() {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
+	/**
+	 * Handles all of the autonomous stuff based on inputs from the DS
+	 * 
+	 * @param strat Strategy for Autonomous
+	 * @param pos Position for Autonomous
+	 * @param team Alliance Color
+	 */
+    public  Autonomous(AutoSubsystem.strat strat, AutoSubsystem.position pos, AutoSubsystem.alliance team) {
     	
-    	addSequential(new Drive(0.25, 0));
-    	addParallel(new WaitCommand(2));
-    	addSequential(new StopDriving());
+    	switch(team) {
+    	case BLUE:
+    		switch(pos) {
+			case LEFT:
+				switch(strat) {
+    				case SHOOT:
+    					addSequential(new Drive(0.5, 0.0025569325, 0.25)); // Turn for the boiler
+    					addSequential(new AimShot());
+    					addSequential(new Shoot());
+    					break;
+    				case GEAR:
+    					addSequential(new Drive(0.5, 0.0025569325, 0.5)); // To the peg
+    					addSequential(new WaitCommand(0.5));
+    					addSequential(new GearDeliver());
+    					break;
+    				case WIN:
+    					addSequential(new Drive(0.5, 0.0025569325, 0.5)); // To the peg
+    					addSequential(new GearDeliver());
+    					addSequential(new Drive(-0.5, 0, 0.125));         // Back it up
+    					addSequential(new Drive(-0.5, -0.25, 0.5));       // To the hopper
+    					addSequential(new Drive(0, -0.25, 0.125));        // Catch the balls
+    					addSequential(new WaitCommand(2));
+    					addSequential(new AimShot());
+    					addSequential(new Shoot());
+    					break;
+    				default:
+				}
+				break;
+			case MID:
+				break;
+			case RIGHT:
+				break;
+			default:
+				break;
+    		}
+    		break;
+    	case RED:
+    		switch(pos) {
+			case LEFT:
+				switch(strat) {
+				case SHOOT:
+					addSequential(new Drive(0.5, -0.0025569325, 0.25)); // Turn for the boiler
+					addSequential(new AimShot());
+					addSequential(new Shoot());
+					break;
+				case GEAR:
+					addSequential(new Drive(0.5, -0.0025569325, 0.5));  // To the peg
+					addSequential(new WaitCommand(0.5));
+					addSequential(new GearDeliver());
+					break;
+				case WIN:
+					addSequential(new Drive(0.5, -0.0025569325, 0.5));  // To the peg
+					addSequential(new GearDeliver());
+					addSequential(new Drive(-0.5, 0, 0.125));           // Back it up
+					addSequential(new Drive(-0.5, 0.25, 0.5));          // To the hopper
+					addSequential(new Drive(0, 0.25, 0.125));           // Catch the balls
+					addSequential(new WaitCommand(2));
+					addSequential(new AimShot());
+					addSequential(new Shoot());
+					break;
+				default:
+		}
+				break;
+			case MID:
+				break;
+			case RIGHT:
+				break;
+			default:
+				break;
+    		}
+    		break;
+    	default:
+    	}
     	
     }
 }

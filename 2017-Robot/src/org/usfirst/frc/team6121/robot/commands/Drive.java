@@ -10,15 +10,18 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Drive extends Command {
 	private double move;
 	private double curve;
+	private double time;
 
-    public Drive(double move, double curve) {
+    public Drive(double move, double curve, double time) {
     	requires(Robot.driveSubsystem);
     	this.move = move;
     	this.curve = curve;
+    	this.time = time;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	setTimeout(time);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -28,7 +31,7 @@ public class Drive extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

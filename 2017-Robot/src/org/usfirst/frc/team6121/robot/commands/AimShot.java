@@ -22,9 +22,9 @@ public class AimShot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.shooterSubsystem.aimValue() > 5) {
+    	if (Robot.shooterSubsystem.aimValue() > 185) {
     		Robot.driveSubsystem.turn(-0.2, 0.2);
-    	} else if (Robot.shooterSubsystem.aimValue() < -5) {
+    	} else if (Robot.shooterSubsystem.aimValue() < 175) {
     		Robot.driveSubsystem.turn(0.2, -0.2);
     	} else {
     		aimed = true;
