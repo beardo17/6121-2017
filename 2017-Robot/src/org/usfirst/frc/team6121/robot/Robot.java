@@ -1,6 +1,10 @@
 
 package org.usfirst.frc.team6121.robot;
 
+import org.usfirst.frc.team6121.robot.commands.Autonomous;
+import org.usfirst.frc.team6121.robot.subsystems.AutoSubsystem.alliance;
+import org.usfirst.frc.team6121.robot.subsystems.AutoSubsystem.position;
+import org.usfirst.frc.team6121.robot.subsystems.AutoSubsystem.strat;
 import org.usfirst.frc.team6121.robot.subsystems.BallIntakeSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
@@ -12,6 +16,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,7 +36,7 @@ public class Robot extends IterativeRobot {
 	public static Vision vision;
 
     Command autonomousCommand;
-//    SendableChooser<Autonomous> chooser;
+    SendableChooser<Autonomous> chooser;
     
     public static NetworkTable table;
 
@@ -49,10 +55,26 @@ public class Robot extends IterativeRobot {
     	shooterSubsystem = new ShooterSubsystem();
 		oi = new OI();
 
-//        chooser = new SendableChooser<Autonomous>();
-//        chooser.addDefault("Default Auto", new Autonomous());
-////        chooser.addObject("My Auto", new MyAutoCommand());
-//        SmartDashboard.putData("Auto mode", chooser);
+        chooser = new SendableChooser<Autonomous>();
+        chooser.addDefault("Blue: Left: Both", new Autonomous(strat.WIN, position.LEFT, alliance.BLUE));
+        chooser.addObject("Blue: Left: Shoot", new Autonomous(strat.SHOOT, position.LEFT, alliance.BLUE));
+        chooser.addObject("Blue: Left: Both", new Autonomous(strat.GEAR, position.LEFT, alliance.BLUE));
+        chooser.addObject("Blue: Mid: Both", new Autonomous(strat.WIN, position.MID, alliance.BLUE));
+        chooser.addObject("Blue: Mid: Shoot", new Autonomous(strat.SHOOT, position.MID, alliance.BLUE));
+        chooser.addObject("Blue: Mid: Gear", new Autonomous(strat.GEAR, position.MID, alliance.BLUE));
+        chooser.addObject("Blue: Right: Both", new Autonomous(strat.WIN, position.RIGHT, alliance.BLUE));
+        chooser.addObject("Blue: Right: Shoot", new Autonomous(strat.SHOOT, position.RIGHT, alliance.BLUE));
+        chooser.addObject("Blue: Right: Gear", new Autonomous(strat.GEAR, position.RIGHT, alliance.BLUE));
+        chooser.addObject("Red: Left: Both", new Autonomous(strat.WIN, position.LEFT, alliance.RED));
+        chooser.addObject("Red: Left: Shoot", new Autonomous(strat.SHOOT, position.LEFT, alliance.RED));
+        chooser.addObject("Red: Left: Gear", new Autonomous(strat.GEAR, position.LEFT, alliance.RED));
+        chooser.addObject("Red: Mid: Both", new Autonomous(strat.WIN, position.MID, alliance.RED));
+        chooser.addObject("Red: Mid: Shoot", new Autonomous(strat.SHOOT, position.MID, alliance.RED));
+        chooser.addObject("Red: Mid: Gear", new Autonomous(strat.GEAR, position.MID, alliance.RED));
+        chooser.addObject("Red: Right: Both", new Autonomous(strat.WIN, position.RIGHT, alliance.RED));
+        chooser.addObject("Red: Right: Shoot", new Autonomous(strat.SHOOT, position.RIGHT, alliance.RED));
+        chooser.addObject("Red: Right: Gear", new Autonomous(strat.GEAR, position.RIGHT, alliance.RED));
+        SmartDashboard.putData("Auto mode", chooser);
     }
     
     
@@ -79,7 +101,7 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-//        autonomousCommand = (Command) chooser.getSelected();
+        autonomousCommand = (Command) chooser.getSelected();
         
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {
@@ -100,7 +122,6 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-       RobotMap.agitatorMotor.set(.05);
     	Scheduler.getInstance().run();
         
     }
@@ -117,7 +138,6 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-    	RobotMap.agitatorMotor.set(.05);
     	Scheduler.getInstance().run();
     }
     
